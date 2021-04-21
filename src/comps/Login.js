@@ -9,7 +9,7 @@ const Login = () => {
     };
     return (
         <>
-            {user && <Redirect to="/myspace" />}
+            {user && <Redirect to="/" />}
             <div className="login-container">
                 <div className="login-box">
                     <button className="google" onClick={() => googleLogin()}>
