@@ -43,9 +43,6 @@ const ImageOverlay = ({ doc, user, setCommentOpen, personal }) => {
 
     const handleComment = (e, id) => {
         e.stopPropagation();
-        if (!user) {
-            return toast("Only Logged in Users can comment on Photos.", { type: "error" });
-        }
         setCommentOpen({
             modal: true,
             id,
@@ -76,7 +73,7 @@ const ImageOverlay = ({ doc, user, setCommentOpen, personal }) => {
                 <div className="user-info">
                     {/* hardcoded values are used here to fix login as guest. */}
                     <img
-                        src={doc.userPhoto ? doc.userPhoto : "https://picsum.photos/200"}
+                        src={doc.userPhoto ? doc.userPhoto : "https://picsum.photos/id/191/200"}
                         alt={doc.createdBy ? doc.createdBy : "Test User"}
                         title={`Uploaded By: ${doc.createdBy ? doc.createdBy : "Test User"}`}
                     />

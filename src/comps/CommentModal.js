@@ -110,19 +110,25 @@ const CommentModal = ({ commentOpen, setCommentOpen }) => {
                             </span>
                             {/* Hardcoded values for supporting login as guest */}
                             <img
-                                src={c.photo ? c.photo : "https://picsum.photos/200"}
+                                src={c.photo ? c.photo : "https://picsum.photos/id/191/200"}
                                 alt={c.commentedBy ? c.commentedBy : "Test User"}
                                 title={c.commentedBy ? c.commentedBy : "Test User"}
                             />
                         </div>
                     );
                 })}
+
                 <motion.input
+                    disabled={!commentOpen.user}
                     onKeyUp={handleSubmit}
                     value={input}
                     onChange={handleChange}
                     type="text"
-                    placeholder="Type and press ENTER..."></motion.input>
+                    placeholder={
+                        commentOpen.user
+                            ? "Type and press ENTER to comment..."
+                            : "Only logged in users can comment."
+                    }></motion.input>
             </motion.div>
         </motion.div>
     );
