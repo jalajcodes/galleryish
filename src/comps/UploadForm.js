@@ -55,8 +55,12 @@ const UploadForm = () => {
             <div className="output">
                 {error && <div className="error">{error}</div>}
                 {file && <div>{file.name}</div>}
-                {file && user ? <PersonalProgressBar file={file} setFile={setFile} /> : null}
-                {file && !user ? <ProgressBar file={file} setFile={setFile} /> : null}
+                {file && user && location.pathname === "/myspace" ? (
+                  <PersonalProgressBar file={file} setFile={setFile} />
+                ) : null}
+                {file && user && location.pathname === "/" ? (
+                  <ProgressBar file={file} setFile={setFile} />
+                ) : null}
             </div>
         </form>
     );
